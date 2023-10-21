@@ -1,0 +1,178 @@
+[
+    {
+        "dificultad": 100,
+        "pregunta": "¿Cuál de los siguientes equipos es conocido como 'El Xeneize'?",
+        "respuesta_correcta": "Boca Juniors",
+        "opciones": [
+            "River Plate",
+            "Independiente",
+            "Boca Juniors",
+            "Racing Club"
+        ]
+    },
+    {
+        "dificultad": 100,
+        "pregunta": "¿Cuantas Libertadores tiene Independiente?",
+        "respuesta_correcta": "7",
+        "opciones": [
+            "5",
+            "4",
+            "6",
+            "7"
+        ]
+    },
+    {
+        "dificultad": 200,
+        "pregunta": "¿En qué estadio juega habitualmente la selección argentina de fútbol?",
+        "respuesta_correcta": "Estadio Monumental",
+        "opciones": [
+            "Estadio Monumental",
+            "Estadio La Bombonera",
+            "Estadio Libertadores de América",
+            "Estadio Ciudad de La Plata"
+        ]
+    },
+    {
+        "dificultad": 300,
+        "pregunta": "¿Cuál de los siguientes equipos argentinos es conocido como 'El Matador'?",
+        "respuesta_correcta": "Tigre",
+        "opciones": [
+            "San Lorenzo",
+            "Tigre",
+            "Lanus",
+            "Banfield"
+        ]
+    },
+    {
+        "dificultad": 500,
+        "pregunta": "¿Cuál de los siguientes equipos tiene su sede en el barrio de La Paternal?",
+        "respuesta_correcta": "Argentinos Juniors",
+        "opciones": [
+            "Platense",
+            "Arsenal",
+            "Racing Club",
+            "Argentinos Juniors"
+        ]
+    },
+    {
+        "dificultad": 1000,
+        "pregunta": "¿Cuál es el apodo del Club Atlético Huracán?",
+        "respuesta_correcta": "El Globo",
+        "opciones": [
+            "El Granate",
+            "El Globo",
+            "La Lepra",
+            "El pincha"
+        ]
+    },
+    {
+        "dificultad": 2000,
+        "pregunta": "¿Cuál es el clásico de la ciudad de Córdoba en el fútbol argentino?",
+        "respuesta_correcta": "Belgrano-Instituto",
+        "opciones": [
+            "Godoy Cruz-San Martin",
+            "Rosario-Newells",
+            "Belgrano-Instituto",
+            "Union-Colon"
+        ]
+    },
+    {
+        "dificultad": 4000,
+        "pregunta": "¿Cuál de los siguientes equipos argentinos es conocido como 'El Patrón'?",
+        "respuesta_correcta": "Patronato",
+        "opciones": [
+            "Atletico Tucuman",
+            "Patronato",
+            "Union",
+            "Defensa y Justicia"
+        ]
+    },
+    {
+        "dificultad": 8000,
+        "pregunta": "¿Qué jugador argentino es conocido como 'El Demonio'?",
+        "respuesta_correcta": "Gabriel Hauche",
+        "opciones": [
+            "Dario Benedetto",
+            "Jose Sand",
+            "Gabriel Hauche",
+            "Ivan Pillud"
+        ]
+    },
+    {
+        "dificultad": 16000,
+        "pregunta": "¿Cuál de los siguientes equipos es uno de 'Los Cinco Grandes' del fútbol argentino?",
+        "respuesta_correcta": "San Lorenzo",
+        "opciones": [
+            "Newell's Old Boys",
+            "San Lorenzo",
+            "Gimnasia y Esgrima La Plata",
+            "Banfield"
+        ]
+    },
+    {
+        "dificultad": 32000,
+        "pregunta": "¿Cuál de los siguientes equipos argentinos es conocido como 'El Fortín'?",
+        "respuesta_correcta": "Vélez Sarsfield",
+        "opciones": [
+            "Huracán",
+            "Estudiantes de La Plata",
+            "Vélez Sarsfield",
+            "Lanús"
+        ]
+    },
+    {
+        "dificultad": 64000,
+        "pregunta": "¿Cuál es el clásico de la ciudad de Santa Fe en el fútbol argentino?",
+        "respuesta_correcta": "Union-Colon",
+        "opciones": [
+            "Platense-Argentinos",
+            "Union-Colon",
+            "Quilmes-Arsenal",
+            "Tigre-Velez"
+        ]
+    },
+    {
+        "dificultad": 125000,
+        "pregunta": "¿Cuál de los siguientes clubes argentinos ganó la Copa Sudamericana en 2021?",
+        "respuesta_correcta": "River Plate",
+        "opciones": [
+            "Boca Juniors",
+            "River Plate",
+            "Independiente",
+            "Racing Club"
+        ]
+    },
+    {
+        "dificultad": 250000,
+        "pregunta": "¿Qué jugador argentino es conocido como 'El Apache'?",
+        "respuesta_correcta": "Carlos Tevez",
+        "opciones": [
+            "Anibal Moreno",
+            "Federico Mancuello",
+            "Carlos Tevez",
+            "Martin Palermo"
+        ]
+    },
+    {
+        "dificultad": 500000,
+        "pregunta": "¿Quién es el máximo goleador en la historia de Banfield?",
+        "respuesta_correcta": "Gustavo Albella",
+        "opciones": [
+            "Gustavo Albella",
+            "Dario Cvitanich",
+            "Daniel Bilos",
+            "Santiago Silva"
+        ]
+    },
+    {
+        "dificultad": 1000000,
+        "pregunta": "¿Quién es el máximo goleador en la historia de Boca Juniors?",
+        "respuesta_correcta": "Martin Palermo",
+        "opciones": [
+            "Diego Maradona",
+            "Carlos Tevez",
+            "Martin Palermo",
+            "Juan Roman Riquelme"
+        ]
+    }
+]
