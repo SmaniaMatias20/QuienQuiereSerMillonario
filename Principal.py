@@ -16,40 +16,31 @@ pregunta = filtrar_pregunta(banco_de_preguntas, rangos[indice])
 opciones = mezclar_opciones(pregunta["opciones"])
 
 while True:
-    
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            sys.exit()
-     
+         
     actualizar_ventana(ventana, pregunta, opciones, indice)
 
     respuesta = verificar_respuesta(pregunta)
     
-    continuar = ""
+    continuar = None
     continuar = continuar_partida(ventana, indice)
     
     if respuesta == True and continuar == True:
         indice = indice + 1
         if indice >= len(rangos):
             # Gano el millon
-            jugador = cargar_jugador(rangos[indice-1])
-            guardar_puntuacion(jugador)
+            guardar_puntuacion(rangos[indice-1])
             break
         pregunta = filtrar_pregunta(banco_de_preguntas, rangos[indice])
         opciones = mezclar_opciones(pregunta["opciones"])
     elif respuesta == False or continuar == False:
         # Fin del juego
         if continuar == False:
-            jugador = cargar_jugador(rangos[indice])
-            guardar_puntuacion(jugador)
+            guardar_puntuacion(rangos[indice])
             break
         elif respuesta == False:
-            jugador = cargar_jugador(0)
-            guardar_puntuacion(jugador)
+            guardar_puntuacion(0)
             break
     
-
-
     reloj.tick(60)
     pygame.display.flip()
 

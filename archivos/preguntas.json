@@ -12,6 +12,17 @@
     },
     {
         "dificultad": 100,
+        "pregunta": "¿Cuál de los siguientes equipos es conocido como 'El Pirata'?",
+        "respuesta_correcta": "Belgrano",
+        "opciones": [
+            "Belgrano",
+            "Sarmiento",
+            "Defensa y Justicia",
+            "Patronato"
+        ]
+    },
+    {
+        "dificultad": 100,
         "pregunta": "¿Cuantas Libertadores tiene Independiente?",
         "respuesta_correcta": "7",
         "opciones": [
@@ -33,6 +44,17 @@
         ]
     },
     {
+        "dificultad": 200,
+        "pregunta": "¿Qué club se conoce como 'Rey de Copas' por sus numerosos títulos internacionales?",
+        "respuesta_correcta": "Independiente",
+        "opciones": [
+            "Boca Juniors",
+            "Racing Club",
+            "River Plate",
+            "Independiente"
+        ]
+    },
+    {
         "dificultad": 300,
         "pregunta": "¿Cuál de los siguientes equipos argentinos es conocido como 'El Matador'?",
         "respuesta_correcta": "Tigre",
@@ -41,6 +63,17 @@
             "Tigre",
             "Lanus",
             "Banfield"
+        ]
+    },
+    {
+        "dificultad": 300,
+        "pregunta": " ¿Qué equipo se conoce como 'El Cuervo'?",
+        "respuesta_correcta": "San Lorenzo",
+        "opciones": [
+            "San Lorenzo",
+            "Defensa y Justicia",
+            "Lanus",
+            "Aldosivi"
         ]
     },
     {
@@ -55,6 +88,17 @@
         ]
     },
     {
+        "dificultad": 500,
+        "pregunta": " ¿En qué barrio se encuentra el Estadio Juan Domingo Perón?",
+        "respuesta_correcta": "Avellaneda",
+        "opciones": [
+            "Palermo",
+            "Avellaneda",
+            "Mataderos",
+            "Boedo"
+        ]
+    },
+    {
         "dificultad": 1000,
         "pregunta": "¿Cuál es el apodo del Club Atlético Huracán?",
         "respuesta_correcta": "El Globo",
@@ -63,6 +107,17 @@
             "El Globo",
             "La Lepra",
             "El pincha"
+        ]
+    },
+    {
+        "dificultad": 1000,
+        "pregunta": " ¿Cuál de los siguientes equipos tiene su sede en la ciudad de Rosario?",
+        "respuesta_correcta": "Newell's Old Boys",
+        "opciones": [
+            "Defensa y Justicia",
+            "Newell's Old Boys",
+            "Huracan",
+            "Patronato"
         ]
     },
     {
@@ -121,6 +176,17 @@
         ]
     },
     {
+        "dificultad": 32000,
+        "pregunta": "¿En que club debutó 'El Huevo' Acuña?",
+        "respuesta_correcta": "Ferro",
+        "opciones": [
+            "Huracán",
+            "Ferro",
+            "Racing Club",
+            "River Plate"
+        ]
+    },
+    {
         "dificultad": 64000,
         "pregunta": "¿Cuál es el clásico de la ciudad de Santa Fe en el fútbol argentino?",
         "respuesta_correcta": "Union-Colon",
@@ -129,6 +195,17 @@
             "Union-Colon",
             "Quilmes-Arsenal",
             "Tigre-Velez"
+        ]
+    },
+    {
+        "dificultad": 64000,
+        "pregunta": "¿En que año fue campeón del mundo Velez Sarfield?",
+        "respuesta_correcta": "1994",
+        "opciones": [
+            "1994",
+            "1990",
+            "1995",
+            "1998"
         ]
     },
     {
@@ -143,6 +220,28 @@
         ]
     },
     {
+        "dificultad": 125000,
+        "pregunta": "¿Cuál de los siguientes clubes argentinos ganó la Copa Libertadores en 2009?",
+        "respuesta_correcta": "Estudiantes",
+        "opciones": [
+            "Boca Juniors",
+            "River Plate",
+            "Estudiantes",
+            "Ninguno"
+        ]
+    },
+    {
+        "dificultad": 125000,
+        "pregunta": "¿En qué año ganó San Lorenzo la Copa Libertadores?",
+        "respuesta_correcta": "2014",
+        "opciones": [
+            "2014",
+            "2013",
+            "2015",
+            "2012"
+        ]
+    },
+    {
         "dificultad": 250000,
         "pregunta": "¿Qué jugador argentino es conocido como 'El Apache'?",
         "respuesta_correcta": "Carlos Tevez",
@@ -151,6 +250,17 @@
             "Federico Mancuello",
             "Carlos Tevez",
             "Martin Palermo"
+        ]
+    },
+    {
+        "dificultad": 250000,
+        "pregunta": "¿Cuál de los siguientes clubes argentinos ganó la Copa Sudamericana en 2002?",
+        "respuesta_correcta": "San Lorenzo",
+        "opciones": [
+            "Independiente",
+            "River Plate",
+            "Boca Juniors",
+            "San Lorenzo"
         ]
     },
     {
@@ -165,6 +275,17 @@
         ]
     },
     {
+        "dificultad": 500000,
+        "pregunta": "¿Cuál de los siguientes clubes argentinos ganó la Copa Sudamericana en 2013?",
+        "respuesta_correcta": "Lanus",
+        "opciones": [
+            "Independiente",
+            "River Plate",
+            "Defensa y Justicia",
+            "Lanus"
+        ]
+    },
+    {
         "dificultad": 1000000,
         "pregunta": "¿Quién es el máximo goleador en la historia de Boca Juniors?",
         "respuesta_correcta": "Martin Palermo",
@@ -173,6 +294,17 @@
             "Carlos Tevez",
             "Martin Palermo",
             "Juan Roman Riquelme"
+        ]
+    },
+    {
+        "dificultad": 1000000,
+        "pregunta": "¿Cuál de los siguientes clubes ganó la Copa Argentina en 2017/2018?",
+        "respuesta_correcta": "Rosario Central",
+        "opciones": [
+            "Boca Juniors",
+            "River Plate",
+            "Racing Club",
+            "Rosario Central"
         ]
     }
 ]

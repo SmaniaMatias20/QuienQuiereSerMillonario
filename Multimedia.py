@@ -2,20 +2,33 @@ import json
 import pygame
 
 def definir_colores():
-    #Definir colores 
+    """
+    Brief: 
+        Define colores.
+    Parametros:
+        - Sin parametros.
+    Retorno:
+        - Una lista de colores.
+    """ 
     NEGRO      = (  0,   0,   0)
     ROJO       = (255,   0,   0)
     VERDE      = (  2,  47,  30)
     AZUL       = ( 11,  57,  94)
     BLANCO     = (255, 255, 255)
-    AZUL_CLARO = ( 66, 133, 244)
-    CELESTE    = (120, 175, 224)
 
-    lista_de_colores = [NEGRO, ROJO, VERDE, AZUL, BLANCO, AZUL_CLARO, CELESTE]
+    lista_de_colores = [NEGRO, ROJO, VERDE, AZUL, BLANCO]
 
     return lista_de_colores
 
 def cargar_imagenes():
+    """
+    Brief: 
+        Carga y redimenciona las imagenes.
+    Parametros:
+        - Sin parametros.
+    Retorno:
+        - Una lista de imagenes.
+    """ 
     imagen_de_fondo = pygame.image.load("imagenes/imagen.png")
     imagen_de_fondo = pygame.transform.scale(imagen_de_fondo, (900, 500)) 
 
@@ -41,11 +54,27 @@ def cargar_imagenes():
     return lista_de_imagenes
 
 def cargar_sonido():
+    """
+    Brief: 
+        Carga los sonidos.
+    Parametros:
+        - Sin parametros.
+    Retorno:
+        - Un sonido.
+    """ 
     sonido = pygame.mixer.Sound("sonidos/sonido.mp3")
 
     return sonido
 
 def cargar_preguntas():
+    """
+    Brief: 
+        Carga los preguntas del archivo json.
+    Parametros:
+        - Sin parametros.
+    Retorno:
+        - El banco de preguntas.
+    """ 
     banco_de_preguntas = []
 
     with open("archivos/preguntas.json", "r", encoding="UTF8") as archivo:
