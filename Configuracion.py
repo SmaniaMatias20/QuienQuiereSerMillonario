@@ -208,6 +208,15 @@ def dibujar_rectangulo(ventana: pygame.Surface, color: tuple, ubicacion_x: int, 
     pygame.draw.rect(ventana, color, (ubicacion_x, ubicacion_y, ancho, alto), borde)
       
 def sanitizar_string(valor_str:str):
+    """
+    Brief: 
+        Dibuja un rectangulo en la ventana.
+    Parametros:
+        - valor_str (str): El string a sanitizar.
+    Retorno:
+        - valor_str
+        - "N/A"
+    """
     try:
         if type(valor_str) == str and len(valor_str) != 0:
             valor_str = re.sub("[0-9]", "", valor_str)
@@ -256,7 +265,7 @@ def guardar_puntuacion(rango: int):
 def continuar_partida(ventana: pygame.Surface, indice: int):
     """
     Brief: 
-        Guarda los datos y la puntuacion del jugador.
+        Una vez llegado a cierto rango, le pregunta al jugador si desea continuar o retirarse con lo que tiene.
     Parametros:
         - ventana (pygame.Surface): Ventana de la partida.
         - rango (int): El puntaje que logro alcanzar el jugador. 
