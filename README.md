@@ -6,7 +6,7 @@ Proyecto: Primer Parcial
 
 Imagen
 ----------------------------
-![]()
+![](https://github.com/SmaniaMatias20/PrimerParcialProg/blob/master/imagenes/juego.png)
 
 Descripcion del proyecto
 
