@@ -210,7 +210,7 @@ def dibujar_rectangulo(ventana: pygame.Surface, color: tuple, ubicacion_x: int, 
 def sanitizar_string(valor_str:str):
     """
     Brief: 
-        Dibuja un rectangulo en la ventana.
+        Sanitiza el string recibido por parametro.
     Parametros:
         - valor_str (str): El string a sanitizar.
     Retorno:
