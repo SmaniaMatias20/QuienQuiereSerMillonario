@@ -277,7 +277,7 @@ def dibujar_rectangulo(ventana: pygame.Surface, color: tuple, ubicacion_x: int, 
 def sanitizar_string(valor_str:str):
     """
     Brief: 
-        Sanitiza el string recibido.
+        Sanitiza el string recibido por parametro.
     Parametros:
         - valor_str (str): El string a sanitizar.
     Retorno:
@@ -406,3 +406,4 @@ def mostrar_tiempo(ventana: pygame.surface, tiempo_maximo):
 
     return segundos
     
+
