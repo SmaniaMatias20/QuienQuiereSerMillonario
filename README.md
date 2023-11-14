@@ -21,4 +21,4 @@ y arriesgarte a perder todo.
 Link al video del proyecto
 ----------------------------
 
-Link: https://youtu.be/4wfi92f2Anc?si=CGxgZEGiFHgVeX0y
+Link: 
