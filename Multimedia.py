@@ -1,83 +1,39 @@
-import json
-import pygame
+import pygame as py
+import os
 
-def definir_colores():
-    """
-    Brief: 
-        Define colores.
-    Parametros:
-        - Sin parametros.
-    Retorno:
-        - Una lista de colores.
-    """ 
-    NEGRO      = (  0,   0,   0)
-    ROJO       = (255,   0,   0)
-    VERDE      = (  2,  47,  30)
-    AZUL       = ( 11,  57,  94)
-    BLANCO     = (255, 255, 255)
+def cargar_imagen(path, tamaño: tuple):
+    imagen = py.image.load(path)
+    imagen = py.transform.scale(imagen, tamaño)
 
-    lista_de_colores = [NEGRO, ROJO, VERDE, AZUL, BLANCO]
+    return imagen
 
-    return lista_de_colores
+ROJO      = (255,   0,   0)
+VERDE     = (  0, 255,   0)
+AZUL      = (  0,   0, 255)
+AMARILLO  = (255, 255,   0)
+MAGENTA   = (255,   0, 255)
+CIAN      = (  0, 255, 255)
+BLANCO    = (255, 255, 255)
+NEGRO     = (  0,   0,   0)
+GRIS      = (128, 128, 128)
+NARANJA   = (255, 165,   0)
+ROSA      = (255, 192, 203)
+VIOLETA   = (138, 43 , 226)
 
-def cargar_imagenes():
-    """
-    Brief: 
-        Carga y redimenciona las imagenes.
-    Parametros:
-        - Sin parametros.
-    Retorno:
-        - Una lista de imagenes.
-    """ 
-    imagen_de_fondo = pygame.image.load("imagenes/imagen.png")
-    imagen_de_fondo = pygame.transform.scale(imagen_de_fondo, (900, 500)) 
+SONIDO_FONDO = os.path.join('sonidos', 'sonido.mp3')
 
-    imagen_conductor = pygame.image.load("imagenes/azzaro.png")
-    imagen_conductor = pygame.transform.scale(imagen_conductor, (120, 200))
+IMAGEN_FONDO = os.path.join('imagenes','imagen.png')
+IMAGEN_CONDUCTOR = os.path.join('imagenes', 'azzaro.png')
+IMAGEN_ICONO = os.path.join('imagenes','icono.png')
+IMAGEN_RANGOS = os.path.join('imagenes', 'rangos.png')
+IMAGEN_RESPUESTA = os.path.join('imagenes', 'respuesta.png')
+IMAGEN_PREGUNTA = os.path.join('imagenes', 'pregunta.png')
+IMAGEN_MENSAJE = os.path.join('imagenes', 'mensaje.png')
+IMAGEN_COMODIN = os.path.join('imagenes', 'comodin.png')
 
-    imagen_icono = pygame.image.load("imagenes/icono.png") 
-
-    imagen_rangos = pygame.image.load("imagenes/rangos.png")
-    imagen_rangos = pygame.transform.scale(imagen_rangos, (225, 450))
-
-    imagen_respuesta = pygame.image.load("imagenes/respuesta.png")
-    imagen_respuesta = pygame.transform.scale(imagen_respuesta, (260, 40))
-
-    imagen_pregunta = pygame.image.load("imagenes/pregunta.png")
-    imagen_pregunta = pygame.transform.scale(imagen_pregunta, (600, 60))
-
-    imagen_mensaje = pygame.image.load("imagenes/mensaje.png")
-    imagen_mensaje = pygame.transform.scale(imagen_mensaje, (200, 200))
-
-    lista_de_imagenes = [imagen_de_fondo, imagen_conductor, imagen_icono, imagen_rangos, imagen_respuesta, imagen_pregunta, imagen_mensaje]
-
-    return lista_de_imagenes
-
-def cargar_sonido():
-    """
-    Brief: 
-        Carga los sonidos.
-    Parametros:
-        - Sin parametros.
-    Retorno:
-        - Un sonido.
-    """ 
-    sonido = pygame.mixer.Sound("sonidos/sonido.mp3")
-
-    return sonido
-
-def cargar_preguntas():
-    """
-    Brief: 
-        Carga los preguntas del archivo json.
-    Parametros:
-        - Sin parametros.
-    Retorno:
-        - El banco de preguntas.
-    """ 
-    banco_de_preguntas = []
-
-    with open("archivos/preguntas.json", "r", encoding="UTF8") as archivo:
-        banco_de_preguntas = json.load(archivo)
-
-    return banco_de_preguntas
+imagen_fondo = cargar_imagen(IMAGEN_FONDO, (900, 500))
+imagen_conductor = cargar_imagen(IMAGEN_CONDUCTOR, (120, 200))
+imagen_rangos = cargar_imagen(IMAGEN_RANGOS, (225, 450))
+imagen_respuesta = cargar_imagen(IMAGEN_RESPUESTA, (260, 40))
+imagen_pregunta = cargar_imagen(IMAGEN_PREGUNTA, (600, 60))
+imagen_comodin = cargar_imagen(IMAGEN_COMODIN, (100, 50))

@@ -1,33 +1,38 @@
-import csv
-import sys
+from tkinter.simpledialog import askstring as prompt
+from archivos.Archivos import *
 from ClaseJugador import *
 from Multimedia import *
-from tkinter.simpledialog import askstring as prompt
 import pygame
 import random
 import re
+import sys
 
-rangos = [100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000]
 
-lista_de_colores = definir_colores()
-lista_de_imagenes = cargar_imagenes()
+rangos = [100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000]
+comodin = {"50-50": "activo"}
+
 banco_de_preguntas = cargar_preguntas()
 
-def configurar_ventana(alto: int, ancho: int, icono: pygame.image, titulo: str):
+
+
+
+def configurar_ventana(alto: int, ancho: int, icono, titulo: str):
     """
     Brief: 
         Configura una ventana.
     Parametros:
         - alto (int): El alto de la ventana.
         - ancho (int): El ancho de la ventana.
-        - icono (pygame.image): El icono de la ventana.
+        - icono: El path del icono de la ventana.
         - titulo (str): El titulo de la ventana.
     Retorno:
         - ventana.
     """
+    imagen_icono = cargar_imagen(icono, (50, 50))
+
     ventana = pygame.display.set_mode((ancho, alto))                                 
     pygame.display.set_caption(titulo)                                        
-    pygame.display.set_icon(icono) 
+    pygame.display.set_icon(imagen_icono) 
 
     return ventana 
 
@@ -45,8 +50,9 @@ def actualizar_ventana(ventana: pygame.Surface, pregunta: dict, opciones: list, 
     """
     aplicar_imagenes(ventana)
     mostrar_pregunta(ventana, pregunta)
-    mostrar_opciones(ventana, opciones)
+    mostrar_opciones(ventana, opciones, pregunta)
     mostrar_rangos(ventana, rangos[indice], 700, 130)
+    
     
 def aplicar_imagenes(ventana: pygame.Surface):
     """
@@ -57,14 +63,17 @@ def aplicar_imagenes(ventana: pygame.Surface):
     Retorno:
         - Sin retorno.
     """
-    ventana.blit(lista_de_imagenes[0], [0, 0])
-    ventana.blit(lista_de_imagenes[1], [480, 125])
-    ventana.blit(lista_de_imagenes[3], [650, 50])
-    ventana.blit(lista_de_imagenes[4], [45, 395])
-    ventana.blit(lista_de_imagenes[4], [45, 445])
-    ventana.blit(lista_de_imagenes[4], [345, 395])
-    ventana.blit(lista_de_imagenes[4], [345, 445])
-    ventana.blit(lista_de_imagenes[5], [35, 320])
+    ventana.blit(imagen_fondo, [0, 0])
+    ventana.blit(imagen_conductor, [480, 125])
+    ventana.blit(imagen_rangos, [650, 50])
+    ventana.blit(imagen_respuesta, [45, 395])
+    ventana.blit(imagen_respuesta, [45, 445])
+    ventana.blit(imagen_respuesta, [345, 395])
+    ventana.blit(imagen_respuesta, [345, 445])
+    ventana.blit(imagen_pregunta, [35, 320])
+
+    if comodin["50-50"] == "activo":
+        ventana.blit(imagen_comodin, [10, 10])
 
 def filtrar_pregunta(banco_de_preguntas: list, dificultad: int):
     """
@@ -77,11 +86,11 @@ def filtrar_pregunta(banco_de_preguntas: list, dificultad: int):
         - Una pregunta aleatoria con la dificultad pedida.
     """
     preguntas_por_dificultad = []
-    
+     
     for pregunta in banco_de_preguntas:
         if pregunta["dificultad"] == dificultad:
             preguntas_por_dificultad.append(pregunta)
-
+    
     indice_aleatorio = random.randint(0, len(preguntas_por_dificultad)-1)
     
     return preguntas_por_dificultad[indice_aleatorio]
@@ -96,9 +105,9 @@ def mostrar_pregunta(ventana: pygame.Surface, pregunta: dict):
     Retorno:
         - Sin retorno.
     """
-    aplicar_texto(ventana, pregunta["pregunta"], 50, 340, lista_de_colores[4], 12, "Arial Black")
+    aplicar_texto(ventana, pregunta["pregunta"], 50, 340, BLANCO, 12, "Arial Black")
     
-def mostrar_opciones(ventana: pygame.Surface, opciones: list):
+def mostrar_opciones(ventana: pygame.Surface, opciones: list, pregunta: dict):
     """
     Brief: 
         Muestra las opciones en la ventana.
@@ -108,10 +117,33 @@ def mostrar_opciones(ventana: pygame.Surface, opciones: list):
     Retorno:
         - Sin retorno.
     """
-    aplicar_texto(ventana, opciones[0], 50, 410, lista_de_colores[4], 12, "Arial Black")
-    aplicar_texto(ventana, opciones[1], 50, 460, lista_de_colores[4], 12, "Arial Black")
-    aplicar_texto(ventana, opciones[2], 350, 410, lista_de_colores[4], 12, "Arial Black")
-    aplicar_texto(ventana, opciones[3], 350, 460, lista_de_colores[4], 12, "Arial Black")
+
+    if comodin["50-50"] != "usado":
+        aplicar_texto(ventana, opciones[0], 50, 410, BLANCO, 12, "Arial Black")
+        aplicar_texto(ventana, opciones[1], 50, 460, BLANCO, 12, "Arial Black")
+        aplicar_texto(ventana, opciones[2], 350, 410, BLANCO, 12, "Arial Black")
+        aplicar_texto(ventana, opciones[3], 350, 460, BLANCO, 12, "Arial Black")
+    elif comodin["50-50"] == "usado":
+        if pregunta["respuesta_correcta"] == opciones[0]:
+            aplicar_texto(ventana, opciones[0], 50, 410, BLANCO, 12, "Arial Black")
+            aplicar_texto(ventana, opciones[3], 350, 460, BLANCO, 12, "Arial Black")
+        elif pregunta["respuesta_correcta"] == opciones[1]:
+            aplicar_texto(ventana, opciones[1], 50, 460, BLANCO, 12, "Arial Black")
+            aplicar_texto(ventana, opciones[3], 350, 460, BLANCO, 12, "Arial Black") 
+        elif pregunta["respuesta_correcta"] == opciones[2]:
+            aplicar_texto(ventana, opciones[1], 50, 460, BLANCO, 12, "Arial Black")
+            aplicar_texto(ventana, opciones[2], 350, 410, BLANCO, 12, "Arial Black")
+        else:
+            aplicar_texto(ventana, opciones[0], 50, 410, BLANCO, 12, "Arial Black")
+            aplicar_texto(ventana, opciones[3], 350, 460, BLANCO, 12, "Arial Black")
+            
+        comodin["50-50"] == "desactivo"
+
+
+
+
+   
+
        
 def mezclar_opciones(opciones: list):
     """
@@ -136,18 +168,38 @@ def verificar_respuesta(pregunta: dict):
         - respuesta
     """
     if pregunta["respuesta_correcta"] == pregunta["opciones"][0]:
-        rectangulo = [50, 310, 400, 430]
+        coord_correcta = {
+            "left" : 50,
+            "right" : 310,
+            "bottom" : 400,
+            "top" : 430
+        }
     elif pregunta["respuesta_correcta"] == pregunta["opciones"][1]:
-        rectangulo = [50, 310, 450, 480]
+        coord_correcta = {
+            "left" : 50,
+            "right" : 310,
+            "bottom" : 450,
+            "top" : 480
+        }
     elif pregunta["respuesta_correcta"] == pregunta["opciones"][2]:
-        rectangulo = [350, 610, 400, 430]
+        coord_correcta = {
+            "left" : 350,
+            "right" : 610,
+            "bottom" : 400,
+            "top" : 430
+        }
     else:
-        rectangulo = [350, 610, 450, 480]
-    
-    respuesta = elegir_respuesta(rectangulo) 
+        coord_correcta = {
+            "left" : 350,
+            "right" : 610,
+            "bottom" : 450,
+            "top" : 480
+        }
+  
+    respuesta = elegir_respuesta(coord_correcta) 
     return respuesta  
      
-def elegir_respuesta(rectangulo: list):
+def elegir_respuesta(coor_correcta: list):
     """
     Brief: 
         Evalua las coordenadas donde se produce el evento.
@@ -157,15 +209,27 @@ def elegir_respuesta(rectangulo: list):
         - True.
         - False.
     """
-    posicion_mouse = pygame.mouse.get_pos()        
+    coor_comodin = {
+            "right" : 110,
+            "left" : 10,
+            "bottom" : 60,
+            "top" : 10
+        }
+
+    x, y = pygame.mouse.get_pos()        
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-            if posicion_mouse[0] > rectangulo[0] and posicion_mouse[0] < rectangulo[1] and posicion_mouse[1] > rectangulo[2] and posicion_mouse[1] < rectangulo[3]:
+            if coor_comodin["right"] > x > coor_comodin["left"] and coor_comodin["bottom"] > y > coor_comodin["top"] and comodin["50-50"] == "activo":
+                comodin["50-50"] = "usado"    
+            elif coor_correcta["right"] > x > coor_correcta["left"] and coor_correcta["top"] > y > coor_correcta["bottom"]:
                 return True
             else:
                 return False
+
+
+
 
 def mostrar_rangos(ventana: pygame.Surface, valor_rango: int, ubicacion_x: int, ubicacion_y: int):
     """
@@ -180,12 +244,15 @@ def mostrar_rangos(ventana: pygame.Surface, valor_rango: int, ubicacion_x: int, 
         - Sin retorno.
     """
     for rango in reversed(rangos):
-        rango = str(rango)
-        if valor_rango == int(rango):
-            color_texto = lista_de_colores[0]
-            dibujar_rectangulo(ventana, lista_de_colores[4], ubicacion_x-50, ubicacion_y, 225, 15)
+        if valor_rango == rango:
+            color_texto = NEGRO
+            dibujar_rectangulo(ventana, BLANCO, ubicacion_x-50, ubicacion_y, 225, 15)
         else:
-            color_texto = lista_de_colores[4] 
+            if rango == 1000 or rango == 32000:
+                color_texto = CIAN 
+            else:
+                color_texto = BLANCO 
+
 
         aplicar_texto(ventana, f"${rango}", ubicacion_x, ubicacion_y, color_texto, 12, "Arial Black")
         ubicacion_y += 20
@@ -210,25 +277,25 @@ def dibujar_rectangulo(ventana: pygame.Surface, color: tuple, ubicacion_x: int, 
 def sanitizar_string(valor_str:str):
     """
     Brief: 
-        Dibuja un rectangulo en la ventana.
+        Sanitiza el string recibido.
     Parametros:
         - valor_str (str): El string a sanitizar.
     Retorno:
         - valor_str
         - "N/A"
     """
-    try:
-        if type(valor_str) == str and len(valor_str) != 0:
-            valor_str = re.sub("[0-9]", "", valor_str)
-            valor_str = valor_str.title()
-            valor_str = valor_str.strip()
+
+    if type(valor_str) == str:
+        valor_str = re.sub("[0-9]+", "", valor_str)
+        valor_str = valor_str.title()
+        valor_str = valor_str.strip()
+        if len(valor_str) != 0:
             return valor_str
         else:
             return "N/A"
-    except ValueError:
+    else:
         return "N/A"
-    except Exception:
-        return "N/A"        
+   
 
 def cargar_jugador(rango: int):
     """
@@ -245,6 +312,7 @@ def cargar_jugador(rango: int):
     jugador = Jugador("", 0)
     jugador.set_nombre(nombre)
     jugador.set_rango(rango)
+
     return jugador
 
 def guardar_puntuacion(rango: int):
@@ -275,9 +343,10 @@ def continuar_partida(ventana: pygame.Surface, indice: int):
         - 1
     """
     if rangos[indice] == 1000 or rangos[indice] == 32000:
-        ventana.blit(lista_de_imagenes[6], [250, 100])
-        aplicar_texto(ventana, f"¡Has llegado a ${rangos[indice]}!", 270, 160, lista_de_colores[0], 12, "Arial Black")
-        aplicar_texto(ventana, "Para salir presione ESC", 270, 180, lista_de_colores[0], 12, "Arial Black")
+        imagen_mensaje = cargar_imagen(IMAGEN_MENSAJE, (200, 200))
+        ventana.blit(imagen_mensaje, [250, 100])
+        aplicar_texto(ventana, f"¡Has llegado a ${rangos[indice]}!", 270, 160, NEGRO, 12, "Arial Black")
+        aplicar_texto(ventana, "Para salir presione ESC", 270, 180, NEGRO, 12, "Arial Black")
 
         tecla_presionada = pygame.key.get_pressed()
         if tecla_presionada[pygame.K_ESCAPE]: 
@@ -321,4 +390,19 @@ def aplicar_texto(ventana: pygame.Surface, mensaje: str, ubicacion_x: int, ubica
     """
     mensaje_creado = crear_texto(mensaje, color, tamaño, fuente)
     ventana.blit(mensaje_creado, (ubicacion_x, ubicacion_y))
-            
+
+def mostrar_tiempo(ventana: pygame.surface, tiempo_maximo):
+    tiempo_actual = pygame.time.get_ticks()
+    tiempo_restante = max(tiempo_maximo - tiempo_actual, 0)
+
+
+    segundos_restantes = tiempo_restante // 1000
+    minutos = segundos_restantes // 60
+    segundos = segundos_restantes % 60
+
+    mensaje = f"{minutos:02}:{segundos:02}"
+    
+    aplicar_texto(ventana, mensaje, 350, 10, BLANCO, 30, "Arial Black")
+
+    return segundos
+    
