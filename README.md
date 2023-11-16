@@ -21,4 +21,8 @@ y arriesgarte a perder todo.
 Link al video del proyecto
 ----------------------------
 
-Link: 
+Link: https://youtu.be/_2jkU4GAlkA?si=8UBlt0jHrL1T6Fwc
+
+Ocupe la mayoria del tiempo en la explicacion, dejo otro link solo del gameplay por si necesitan ver mas.
+
+Link juego:
