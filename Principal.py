@@ -3,28 +3,28 @@ from Multimedia import *
 from ClaseJugador import *
 import pygame as py
 
+py.init()
 
-pygame.init()
+jugar = menu_intro()
 
 reloj = py.time.Clock()  
-tiempo_maximo = pygame.time.get_ticks() + 30 * 1000
 
-ventana = configurar_ventana(500, 900, IMAGEN_ICONO, "¿Quien quiere ser millonario?")
+VENTANA = configurar_ventana(500, 900, imagen_icono, "¿Quien quiere ser millonario?")
+cargar_sonido("sonidos\sonido.mp3")
 
 indice_de_rango = 0
 pregunta = filtrar_pregunta(banco_de_preguntas, rangos[indice_de_rango])
 opciones = mezclar_opciones(pregunta["opciones"])
 
-while True:
+tiempo_maximo = py.time.get_ticks() + 30 * 1000
+while jugar:
 
-    actualizar_ventana(ventana, pregunta, opciones, indice_de_rango)
+    respuesta = actualizar_ventana(VENTANA, pregunta, opciones, indice_de_rango)
 
-    respuesta = verificar_respuesta(pregunta)
-    
     continuar = None
-    continuar = continuar_partida(ventana, indice_de_rango)
+    continuar = continuar_partida(VENTANA, indice_de_rango)
 
-    tiempo_restante = mostrar_tiempo(ventana, tiempo_maximo)
+    tiempo_restante = mostrar_tiempo(VENTANA, tiempo_maximo)
     
     if respuesta == True and continuar == True:
         
@@ -36,7 +36,7 @@ while True:
         pregunta = filtrar_pregunta(banco_de_preguntas, rangos[indice_de_rango])
         opciones = mezclar_opciones(pregunta["opciones"])
 
-        tiempo_maximo = pygame.time.get_ticks() + 30 * 1000
+        tiempo_maximo = py.time.get_ticks() + 30 * 1000
 
         if comodin["50-50"] == "usado":
             comodin["50-50"] = "desactivo"
@@ -49,6 +49,6 @@ while True:
         break
 
     reloj.tick(60)
-    pygame.display.flip()
+    py.display.flip()
 
-pygame.quit()
+py.quit()

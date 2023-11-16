@@ -1,7 +1,7 @@
 class Jugador:
-    def __init__(self, nombre: str, rango: int):
-        self.__nombre = nombre
-        self.__rango = rango
+    def __init__(self):
+        self.__nombre = ""
+        self.__rango = 0
 
     def get_nombre(self):
         return self.__nombre
