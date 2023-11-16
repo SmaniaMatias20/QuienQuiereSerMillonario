@@ -21,8 +21,8 @@ y arriesgarte a perder todo.
 Link al video del proyecto
 ----------------------------
 
-Link: https://youtu.be/_2jkU4GAlkA?si=8UBlt0jHrL1T6Fwc
+Link defensa y juego: https://youtu.be/_2jkU4GAlkA?si=8UBlt0jHrL1T6Fwc
 
-Ocupe la mayoria del tiempo en la explicacion, dejo otro link solo del gameplay por si necesitan ver mas.
+Ocupe la mayoria del tiempo en la defensa, dejo otro link solo del gameplay por si necesitan ver mas.
 
-Link juego:
+Link juego: https://youtu.be/lLuavUgvmi0?si=0MG45BH-Yl_IHzLn
